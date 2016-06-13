@@ -1,0 +1,65 @@
+[
+    {
+        "name": "PressTV",
+        "id": 1,
+        "pid": 0,
+        "children": [
+            {
+                "name": "Programs",
+                "pid": 1,
+                "id": 101,
+                "children": [
+                    {
+                        "name": "Hollywood Cut",
+                        "pid": 101,
+                        "id": 15068
+                    },
+                    {
+                        "name": "Iran",
+                        "parent": 101,
+                        "id": 15015
+                    }
+                ]
+            },
+            {
+                "name": "News Bulletin",
+                "pid": 1,
+                "id": 13012
+            }
+        ]
+    },
+    {
+        "name": "iFilm",
+        "id": 2,
+        "pid": 0,
+        "children": [
+            {
+                "name": "Programs",
+                "pid": 2,
+                "id": 201,
+                "children": [
+                    {
+                        "name": "Hollywood Cut",
+                        "pid": 201,
+                        "id": 15068
+                    },
+                    {
+                        "name": "Iran",
+                        "parent": 201,
+                        "id": 15015
+                    }
+                ]
+            },
+            {
+                "name": "News Bulletin",
+                "pid": 2,
+                "id": 13012
+            }
+        ]
+    },
+    { 
+        "name": "Hispantv",
+        "id": 1,
+        "pid": 0
+    }
+]

@@ -1,0 +1,19 @@
+.modal {
+    .modal-dialog {
+        width: 85vw; min-height: 100vh; margin-top: 0 !important; margin-bottom: 0 !important; background: #000;
+        .modal-content {
+            height: 100%; background: #000; color: #fff;
+            .modal-header {
+                border: 0 none; padding: 0;
+                .close {
+                    color: @gray-light; opacity: 0.6; text-shadow: 0 0 transparent; font-size: 32px; transition: @t; position: relative; z-index: 1200; padding: @grid-gutter-width; float: right;
+                    &:hover { opacity: 1; }
+                }
+            }
+            .modal-body {
+                height: 100%; padding: 0;
+                #mediaplayer { margin-top: -32px; margin-bottom: 32px; }
+            }
+        }
+    }
+}

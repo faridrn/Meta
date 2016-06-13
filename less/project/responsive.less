@@ -1,0 +1,48 @@
+@media (max-width: @screen-md-max) {
+    .panel.items {
+        .item-info {
+            .details {
+                h3 {
+                    margin-top: 0;
+                    &, & a { font-size: 24px; }
+                }
+                .meta {
+                    span { margin-bottom: 0; }
+                }
+                p { font-size: 14px; margin-top: 10px; margin-bottom: 0; overflow: hidden; max-height: 80px; }
+            }
+        }
+    }
+}
+@media (max-width: @screen-sm-max) {
+    #user-area .user-menu { margin-left: 0; }
+    .search {
+        float: none; display: none;
+        &:before { position: fixed; width: 100%; height: 100%; display: block; background: rgba(0, 0, 0, 0.8); top: 0; left: 0; z-index: 50; content: ''; }
+        .form-group {
+            position: fixed; z-index: 60; top: 50%; left: 50%; margin-left: -140px; margin-top: -17px;
+            input { width: 280px; border: 1px solid @gray-light }
+            button[role="close"] { display: block; position: fixed; top: 0; right: 0; z-index: 60; width: 60px; height: 60px; background: rgba(0, 0, 0, 0.8); text-align: center; line-height: 60px; padding: 0; font-size: 24px; border: 0 none; }
+        }
+    }
+    .panel.items {
+        .panel-title {
+            a:after { font-size: 18px; }
+        }
+    }
+    .modal-dialog { width: 100% !important; }
+}
+@media (max-width: @screen-xs-max) {
+    .panel.items {
+        .item-info {
+            .poster .play { border-width: 1px; }
+            .details {
+                h3 {
+                    &, & a { font-size: 18px; }
+                }
+                p { display: none; }
+                .meta { display: none; }
+            }
+        }
+    }
+}

@@ -1,0 +1,364 @@
+html, body { height: 100%; }
+a { outline: 0 none; transition: @t; }
+
+.pace {
+    -webkit-pointer-events: none; pointer-events: none; -webkit-user-select: none; -moz-user-select: none; user-select: none;
+    &.pace-inactive { display: none; }
+    .pace-progress {
+        background: @blue; width: 100%; height: 4px; margin: 0 auto; position: fixed; z-index: 2000; top: 0; right: 100%; opacity: 0.9;
+        pace-progress-inner { margin: 0 auto; }
+    }
+}
+
+.carousel {
+    display: none;
+    width: 100%;
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+    z-index: 1;
+    .animated {
+        -webkit-animation-duration: 1000ms;
+        animation-duration: 1000ms;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+    }
+    .owl-animated-in {
+        z-index: 0;
+    }
+    .owl-animated-out {
+        z-index: 1;
+    }
+    .fadeOut {
+        -webkit-animation-name: fadeOut;
+        animation-name: fadeOut;
+    }
+    .owl-stage {
+        position: relative;
+        -ms-touch-action: pan-Y;
+        &:after {
+            content: ".";
+            display: block;
+            clear: both;
+            visibility: hidden;
+            line-height: 0;
+            height: 0;
+        }
+    }
+    .owl-stage-outer {
+        position: relative;
+        overflow: hidden;
+        -webkit-transform: translate3d(0px, 0px, 0px);
+    }
+    .owl-controls {
+        .owl-nav .owl-prev {
+            cursor: hand;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        .owl-nav .owl-next {
+            cursor: hand;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        .owl-dot {
+            cursor: hand;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    }
+    &.owl-loaded {
+        display: block;
+    }
+    &.owl-loading {
+        opacity: 0;
+        display: block;
+    }
+    &.owl-hidden {
+        opacity: 0;
+    }
+    .owl-refresh {
+        .owl-item {
+            display: none;
+        }
+    }
+    .owl-item {
+        position: relative;
+        min-height: 1px;
+        float: left;
+        -webkit-backface-visibility: hidden;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        img {
+            display: block;
+            width: 100%;
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+        }
+        .owl-lazy {
+            opacity: 0;
+            -webkit-transition: opacity 400ms ease;
+            -moz-transition: opacity 400ms ease;
+            -ms-transition: opacity 400ms ease;
+            -o-transition: opacity 400ms ease;
+            transition: opacity 400ms ease;
+        }
+    }
+    &.owl-text-select-on {
+        .owl-item {
+            -webkit-user-select: auto;
+            -moz-user-select: auto;
+            -ms-user-select: auto;
+            user-select: auto;
+        }
+    }
+    .owl-grab {
+        cursor: grab;
+    }
+    &.owl-rtl {
+        direction: rtl;
+        .owl-item {
+            float: right;
+        }
+    }
+    .owl-video-wrapper {
+        position: relative;
+        height: 100%;
+        background: #000;
+    }
+    .owl-video-play-icon {
+        position: absolute;
+        height: 80px;
+        width: 80px;
+        left: 50%;
+        top: 50%;
+        margin-left: -40px;
+        margin-top: -40px;
+        cursor: pointer;
+        z-index: 1;
+        -webkit-backface-visibility: hidden;
+        -webkit-transition: scale 100ms ease;
+        -moz-transition: scale 100ms ease;
+        -ms-transition: scale 100ms ease;
+        -o-transition: scale 100ms ease;
+        transition: scale 100ms ease;
+        &:hover {
+            -webkit-transition: scale(1.3, 1.3);
+            -moz-transition: scale(1.3, 1.3);
+            -ms-transition: scale(1.3, 1.3);
+            -o-transition: scale(1.3, 1.3);
+            transition: scale(1.3, 1.3);
+        }
+    }
+    .owl-video-playing {
+        .owl-video-tn {
+            display: none;
+        }
+        .owl-video-play-icon {
+            display: none;
+        }
+    }
+    .owl-video-tn {
+        opacity: 0;
+        height: 100%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        background-size: contain;
+        -webkit-transition: opacity 400ms ease;
+        -moz-transition: opacity 400ms ease;
+        -ms-transition: opacity 400ms ease;
+        -o-transition: opacity 400ms ease;
+        transition: opacity 400ms ease;
+    }
+    .owl-video-frame {
+        position: relative;
+        z-index: 1;
+    }
+}
+.owl-height {
+    -webkit-transition: height 500ms ease-in-out;
+    -moz-transition: height 500ms ease-in-out;
+    -ms-transition: height 500ms ease-in-out;
+    -o-transition: height 500ms ease-in-out;
+    transition: height 500ms ease-in-out;
+}
+.no-js {
+    .owl-carousel {
+        display: block;
+    }
+}
+@keyframes fadeOut { 0% { opacity: 1; } 100% { opacity: 0; } }
+
+
+.breadcrumb {
+    background: transparent; margin-top: @grid-gutter-width; margin-bottom: 0; padding-left: 0;
+    & > li {
+        color: @gray;
+        &.active { color: @gray; }
+        & + li{
+            padding-left: 8px;
+            &:before { content: '\e819\00a0\00a0\00a0'; font-family: 'ott'; }
+        }
+    }
+    a {
+        color: @gray-light;
+        &:hover { color: #fff; text-decoration: none; }
+    }
+}
+
+
+// Modal effects
+@backdrop-animation-duration: 0.4s;
+@modal-animation-duration: .5s;
+
+//  IMPORTANT : whatever transition you choose,
+//  you have to preseve the original fade transition effect
+//  in order to preserve the boostrap js transition on hiding modals
+//  example with newspaper effect :
+//  --
+//
+//  <div class="modal fade newspaper" id="myModalId" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+//    <div class="modal-dialog">
+//      <div class="modal-content">
+//        ...
+//      </div>
+//    </div>
+//  </div>
+
+// Global Backdrop background
+// ---------------------------
+.modal-backdrop {
+    // Fade for backdrop  
+    -webkit-backface-visibility:hidden;
+    &.zoom, &.newspaper, &.move-horizontal, &.move-from-top, &.unfold-3d, &.zoom-out {
+        opacity: 0;
+        transition: opacity @backdrop-animation-duration ease;
+    }
+    &.in {
+        opacity: @modal-backdrop-opacity;
+    }
+
+    &.unfold-3d {
+        perspective: 500;
+    }
+}
+
+// transition effects
+// --------------------
+
+.modal {
+    // Zoom effect
+    // -------------
+    &.zoom .modal-dialog {
+        opacity: 0;
+        .transition(all @modal-animation-duration ease-in-out);
+        transform: scale(0.6);
+    }
+    &.in .modal-dialog {
+        opacity: 1;
+        .transition(all 0.4s ease-in-out);
+        transform: scale(1); 
+    }
+
+    // Newspaper effect
+    // --------------------
+    &.fade.newspaper .modal-dialog,
+    &.newspaper .modal-dialog {
+        opacity: 0;
+        -webkit-transition: all @modal-animation-duration ease-in-out; 
+        transition: all @modal-animation-duration;
+        transform: scale(0) rotate(500deg);
+    }
+    &.fade.newspaper.in .modal-dialog,
+    &.in .modal-dialog {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+
+    // Move-horizontal effect
+    // --------------------
+
+    &.move-horizontal .modal-dialog {
+        opacity: 0;
+        transition: all @modal-animation-duration;
+        transform: translateX(-50px);
+    }
+    &.in .modal-dialog {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    // Move-from-top effect
+    // --------------------
+
+    &.move-from-top .modal-dialog {
+        opacity: 0;
+        transition: all @modal-animation-duration;
+        transform: translateY(-100px);
+    }
+    &.in .modal-dialog {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    // 3d unfold
+    // --------------------
+    &.unfold-3d .modal-dialog {
+        opacity: 0;
+        transition: all @modal-animation-duration ease-in-out;
+        transform-style: preserve-3d;
+        transform: rotateY(-60deg);
+    }
+    &.in .modal-dialog {
+        opacity: 1;
+        transform: rotateY(0deg);
+    }
+
+    // Zoom-out effect
+    // --------------------
+
+    &.fade.zoom-out .modal-dialog,
+    &.zoom-out .modal-dialog {
+        opacity: 0;
+        transition: all @modal-animation-duration;
+        transform: scale(1.3);
+    }
+    &.fade.zoom-out.in .modal-dialog,
+    &.in .modal-dialog {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+//special 3d transition (use of modernizr to detect browser support)
+// -------------------------------------------------------------------
+
+.csstransforms3d {
+    .modal {
+        // real 3d unfold
+        // --------------------
+        &.unfold-3d .modal-dialog {
+            transform: none;
+            transform-origin: 50% 100%;
+            transform: scale(.7) rotate3d(-1, 1, 0, -60deg);
+        }
+        &.in .modal-dialog {
+            transform: scale(1) rotate3d(-1, 1, 0, 0deg);
+        }
+    }
+}

@@ -1,0 +1,12 @@
+﻿<smil>
+  <head>
+    <meta base="rtmp://ptv-overonchlivefs.fplive.net/ptv-overonch04live-live/" />
+  </head>
+  <body>
+    <switch>
+      <video src="stream1" height="576" system-bitrate="2000000" width="1280" />
+      <video src="stream3" height="360" system-bitrate="800000" width="640" />
+      <video src="stream5" height="180" system-bitrate="300000" width="320" />
+    </switch>
+  </body>
+</smil>
