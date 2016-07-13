@@ -1,13 +1,13 @@
 #bd.login {
     background: url('../img/blurred-bg-5.jpg') no-repeat center center @body-bg; color: @gray-lighter;
     .login-container {
-        height: 100vh; background: rgba(0, 0, 0, 0.6); padding: @grid-gutter-width * 2;
+        height: 100vh; background: rgba(0, 0, 0, 0.6); padding: (@grid-gutter-width * 4) (@grid-gutter-width * 2);
         a { color: @blue-light; }
         .logo a { width: 100%; background-position: center center; }
         .user-links { margin-top: @grid-gutter-width * 2; }
     }
     .login-form {
-        margin: (@grid-gutter-width * 15) 0 0;
+        margin: (@grid-gutter-width * 5) 0 0;
         label { color: @gray-light; }
         input {
             &[type="checkbox"] { margin-top: 3px; }
@@ -19,6 +19,11 @@
             margin-top: @grid-gutter-width; padding: 6px 20px; background-color: @blue; transition: @t;
             &:hover, &:focus, &:active { background-color: @blue-dark; }
         }
+        ul { .clearfix; padding: 0; list-style-position: inside; margin-top: @grid-gutter-width *2; }
+    }
+    .logo {
+        margin: 0; height: 250px;
+        a { display: block; height: 100%; line-height: @header-height; overflow: hidden; text-indent: -999px; background: url('../img/logo.png') no-repeat left center transparent; }
     }
     #footer { position: absolute; top: 100vh; width: 100%; }
 }

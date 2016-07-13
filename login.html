@@ -9,7 +9,8 @@
 		<link rel="stylesheet" href="css/style.css">
 		<script src="js/modernizr-2.6.2.min.js"></script>
 		<script src="js/jquery-3.0.0.min.js"></script>
-		<script src="js/login.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/main.js"></script>
 	</head>
 	<body id="bd" class="login">
 		<section id="login-page" class="wrapper">
@@ -18,15 +19,21 @@
 					<div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
 						<div class="login-container">
 							<h1 class="logo"><a href="#"></a></h1>
-							<form class="login-form" role="form" action="#">
+							<form class="login-form" role="form" action="TokensCreate" data-next="index.html">
 								<div class="form-group">
-									<input type="text" name="username" class="form-control" id="email-input" placeholder="Email">
+									<input type="text" name="UserName" class="form-control" id="email-input" placeholder="نام کاربری" required />
 								</div>
 								<div class="form-group">
-									<input type="password" name="password" class="form-control" id="pass-input" placeholder="Password">
+									<input type="password" name="Password" class="form-control" id="pass-input" placeholder="رمز عبور" required />
 								</div>
 								<div class="form-group">
-									<button type="submit" class="btn btn-primary">Sign in</button>
+									<button type="submit" class="btn btn-primary">ورود</button>
+								</div>
+								<div class="form-group">
+									<ul>
+										<li><a href="#" data-toggle="modal" data-target="#myModal">ثبت نام کاربر جدید</a></li>
+										<li><a href="#">بازیابی رمز عبور</a></li>
+									</ul>
 								</div>
 							</form>
 						</div>
@@ -34,5 +41,22 @@
 				</div>
 			</div>
 		</section>
+		<div class="modal zoom fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">ثبت نام کاربر جدید</h4>
+					</div>
+					<div class="modal-body">
+						...
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary">Save changes</button>
+					</div>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
