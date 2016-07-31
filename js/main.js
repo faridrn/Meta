@@ -6,7 +6,6 @@ function app() {
         that.delegateForms();
     }(this);
 }
-;
 
 var token = '';
 var Config = {
@@ -29,20 +28,25 @@ var Data = {
                         Cookie.set(token);
                         break;
                     default:
-                            //aaaaa
+                        // Do nothing in particlurar
                         break;
-                };
+                }
                 console.log(d);
-                // Data.handleAction(action);
+//                Data.handleAction(action, d);
             }
             , error: function (xhr, ajaxOptions, thrownError) {
                 alert(xhr.status + '/' + JSON.parse(xhr.responseText).ExceptionMessage);
             }
         });
     }
-    , handleAction: function (action) {
-        if (typeof action === "string") {
-            location.href = action;
+    , handleAction: function (action, data) {
+        switch (action) {
+            case 'toast':
+                alert(data);
+                break;
+            default:
+                location.href = action;
+                break;
         }
     }
 };
@@ -68,7 +72,7 @@ var Forms = {
         });
     }
     , validate: function ($form) {
-        var inputs = $form.find("input, textare, select");
+        var inputs = $form.find("input, textarea, select");
         $.each(inputs, function () {
             if ($(this).is("[required]")) {
                 if (typeof $(this).val() === undefined || $(this).val() === "") {

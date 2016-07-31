@@ -11,6 +11,14 @@
 		<script src="js/jquery-3.0.0.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/main.js"></script>
+		<script>
+            if (token !== '')
+                location.href = 'index.html';
+            if (Cookie.check() !== 'undefined') {
+                token = Cookie.check();
+                location.href = 'index.html';
+            }
+		</script>
 	</head>
 	<body id="bd" class="login">
 		<section id="login-page" class="wrapper">
@@ -21,7 +29,7 @@
 							<h1 class="logo"><a href="#"></a></h1>
 							<form class="login-form" role="form" action="TokensCreate" data-next="index.html">
 								<div class="form-group">
-									<input type="text" name="UserName" class="form-control" id="email-input" placeholder="نام کاربری" required />
+									<input type="text" name="UserName" class="form-control" id="username-input" placeholder="نام کاربری" required />
 								</div>
 								<div class="form-group">
 									<input type="password" name="Password" class="form-control" id="pass-input" placeholder="رمز عبور" required />
@@ -48,13 +56,28 @@
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 						<h4 class="modal-title">ثبت نام کاربر جدید</h4>
 					</div>
-					<div class="modal-body">
-						...
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary">Save changes</button>
-					</div>
+					<form class="register-form" role="form" action="UsersAdd" data-next="toast">
+						<div class="modal-body">
+							<div class="form-group">
+								<input type="text" name="UserName" class="form-control" id="register-username-input" placeholder="نام کاربری" required />
+							</div>
+							<div class="form-group">
+								<input type="text" name="Name" class="form-control rtl" id="register-name-input" placeholder="نام" required />
+							</div>
+							<div class="form-group">
+								<select name="Gender" id="register-gender-input" class="form-control" required>
+									<option value="0">مرد</option>
+									<option value="0">زن</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<input type="text" name="Phone" class="form-control" id="register-phone-input" placeholder="شماره تلفن" required />
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="submit" class="btn btn-primary">ثبت نام</button>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
